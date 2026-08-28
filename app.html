@@ -1,581 +1,537 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Atharv</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <div class="container">
-        <h1>ATHARV</h1>
-        <p>Welcome to my world 🚀</p>
-        <button>Enter My Website</button>
-    </div>
-
-</body>
-</html> 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Atharv — Beyond Ordinary</title>
+    <title>Croply | Smart Farming for India</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        html {
-            scroll-behavior: smooth;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        body {
-            background: #050505;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Background */
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: #6c35ff;
-            border-radius: 50%;
-            filter: blur(180px);
-            opacity: 0.15;
-            top: -200px;
-            right: -150px;
-            z-index: -1;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            background: #00d9ff;
-            border-radius: 50%;
-            filter: blur(180px);
-            opacity: 0.08;
-            bottom: -100px;
-            left: -100px;
-            z-index: -1;
-        }
-
-        /* Navigation */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 25px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(15px);
-            background: rgba(5,5,5,0.55);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #8c6cff;
-        }
-
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        /* Hero */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 8%;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .small {
-            color: #8c6cff;
-            letter-spacing: 5px;
-            font-size: 12px;
-            margin-bottom: 30px;
-        }
-
-        .hero h1 {
-            font-size: clamp(80px, 16vw, 200px);
-            line-height: 0.8;
-            letter-spacing: -10px;
-            margin-bottom: 40px;
-        }
-
-        .hero h1 span {
-            color: #8c6cff;
-        }
-
-        .hero h2 {
-            font-size: clamp(25px, 4vw, 50px);
-            font-weight: 400;
-            margin-bottom: 25px;
-        }
-
-        .hero h2 span {
-            color: #777;
-        }
-
-        .hero p {
-            color: #888;
-            max-width: 500px;
-            line-height: 1.8;
-            font-size: 17px;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 16px 25px;
-            background: white;
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(140,108,255,0.3);
-        }
-
-        /* Sections */
-
-        section:not(.hero) {
-            padding: 130px 8%;
-            border-top: 1px solid #1b1b1b;
-        }
-
-        .label {
-            color: #666;
-            font-size: 12px;
-            letter-spacing: 4px;
-            margin-bottom: 60px;
-        }
-
-        section h2 {
-            font-size: clamp(50px, 8vw, 110px);
-            line-height: 0.9;
-            letter-spacing: -5px;
-            margin-bottom: 60px;
-        }
-
-        section h2 span {
-            color: #777;
-        }
-
-        /* About */
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-        }
-
-        .about-text {
-            color: #888;
-            line-height: 2;
-            font-size: 17px;
-        }
-
-        .about-text p {
-            margin-bottom: 25px;
-        }
-
-        /* Stats */
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            margin-top: 80px;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
-        }
-
-        .stat {
-            padding: 35px 20px;
-            border-right: 1px solid #222;
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .stat small {
-            color: #666;
-            letter-spacing: 2px;
-        }
-
-        /* Projects */
-
-        .project {
-            display: grid;
-            grid-template-columns: 100px 1fr 50px;
-            padding: 45px 0;
-            border-top: 1px solid #222;
-            transition: 0.4s;
-        }
-
-        .project:hover {
-            padding-left: 20px;
-            background: linear-gradient(90deg, #111, transparent);
-        }
-
-        .project-number {
-            color: #555;
-        }
-
-        .project h3 {
-            font-size: 35px;
-            margin-bottom: 12px;
-        }
-
-        .project p {
-            color: #666;
-            max-width: 600px;
-        }
-
-        .arrow {
-            font-size: 30px;
-            color: #777;
-        }
-
-        /* Contact */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact h2 {
-            margin-bottom: 30px;
-        }
-
-        .contact p {
-            color: #777;
-            margin-bottom: 20px;
-        }
-
-        /* Footer */
-
-        footer {
-            padding: 30px 8%;
-            display: flex;
-            justify-content: space-between;
-            color: #555;
-            font-size: 12px;
-            border-top: 1px solid #222;
-        }
-
-        /* Mobile */
-
-        @media(max-width: 700px) {
-
-            nav a {
-                display: none;
-            }
-
-            .hero {
-                padding: 120px 7%;
-            }
-
-            .hero h1 {
-                font-size: 80px;
-                letter-spacing: -5px;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stat {
-                border-bottom: 1px solid #222;
-            }
-
-            .project {
-                grid-template-columns: 50px 1fr 30px;
-            }
-
-            .project h3 {
-                font-size: 25px;
-            }
-
-            section:not(.hero) {
-                padding: 100px 7%;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- NAVBAR -->
 
-    <nav>
+    <header class="navbar">
+
         <div class="logo">
-            ATHARV<span>.</span>
+            🌱 <span>Croply</span>
         </div>
 
-        <div>
-            <a href="#about">ABOUT</a>
-            <a href="#projects">PROJECTS</a>
-            <a href="#contact">CONTACT</a>
-        </div>
-    </nav>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#crops">Crops</a>
+            <a href="#market">Market</a>
+            <a href="#weather">Weather</a>
+            <a href="#schemes">Schemes</a>
+        </nav>
+
+        <button class="login-btn">Farmer Login</button>
+
+    </header>
 
 
     <!-- HERO -->
 
-    <section class="hero">
+    <section class="hero" id="home">
 
         <div class="hero-content">
 
-            <div class="small">
-                WELCOME TO MY WORLD
-            </div>
+            <span class="badge">🇮🇳 Built for Indian Farmers</span>
 
             <h1>
-                ATHARV<span>.</span>
+                Grow Better.<br>
+                <span>Earn Smarter.</span>
             </h1>
 
+            <p>
+                Croply gives Indian farmers simple tools, crop information,
+                market prices, weather updates and farming guidance —
+                all in one place.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn">Explore Croply →</button>
+                <button class="secondary-btn">Learn More</button>
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="farmer-image">
+                🌾
+            </div>
+
+            <div class="farmer-info">
+                <small>Today's Farming Tip</small>
+
+                <h3>
+                    Healthy soil =<br>
+                    healthy crops.
+                </h3>
+
+                <p>
+                    Test your soil before selecting
+                    your next crop.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK STATS -->
+
+    <section class="stats">
+
+        <div class="stat">
+            <span>🌾</span>
+            <div>
+                <strong>50+</strong>
+                <p>Crop Guides</p>
+            </div>
+        </div>
+
+        <div class="stat">
+            <span>📈</span>
+            <div>
+                <strong>Live</strong>
+                <p>Market Insights</p>
+            </div>
+        </div>
+
+        <div class="stat">
+            <span>☁️</span>
+            <div>
+                <strong>7 Day</strong>
+                <p>Weather Forecast</p>
+            </div>
+        </div>
+
+        <div class="stat">
+            <span>👨‍🌾</span>
+            <div>
+                <strong>Farmers</strong>
+                <p>First Approach</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- CROPS -->
+
+    <section class="section" id="crops">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-tag">CROP KNOWLEDGE</span>
+
+                <h2>
+                    Choose the right crop.
+                </h2>
+            </div>
+
+            <p>
+                Understand crops, their seasons, soil requirements,
+                water needs and harvesting periods.
+            </p>
+
+        </div>
+
+
+        <div class="crop-grid">
+
+            <div class="crop-card">
+                <div class="crop-icon">🌾</div>
+                <h3>Wheat</h3>
+                <p>Rabi crop • Cool climate</p>
+
+                <div class="crop-details">
+                    <span>💧 Medium water</span>
+                    <span>🌱 Loamy soil</span>
+                </div>
+
+                <button>View Guide →</button>
+            </div>
+
+
+            <div class="crop-card">
+                <div class="crop-icon">🌾</div>
+                <h3>Rice</h3>
+                <p>Kharif crop • Warm climate</p>
+
+                <div class="crop-details">
+                    <span>💧 High water</span>
+                    <span>🌱 Clay soil</span>
+                </div>
+
+                <button>View Guide →</button>
+            </div>
+
+
+            <div class="crop-card">
+                <div class="crop-icon">🌽</div>
+                <h3>Maize</h3>
+                <p>Kharif crop • Warm climate</p>
+
+                <div class="crop-details">
+                    <span>💧 Medium water</span>
+                    <span>🌱 Fertile soil</span>
+                </div>
+
+                <button>View Guide →</button>
+            </div>
+
+
+            <div class="crop-card">
+                <div class="crop-icon">🥜</div>
+                <h3>Groundnut</h3>
+                <p>Oilseed • Warm climate</p>
+
+                <div class="crop-details">
+                    <span>💧 Low water</span>
+                    <span>🌱 Sandy soil</span>
+                </div>
+
+                <button>View Guide →</button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MARKET -->
+
+    <section class="market-section" id="market">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-tag">MARKET WATCH</span>
+
+                <h2>
+                    Know your market.
+                </h2>
+            </div>
+
+            <p>
+                Keep an eye on crop prices and make
+                better selling decisions.
+            </p>
+
+        </div>
+
+
+        <div class="market-container">
+
+            <div class="market-table">
+
+                <div class="table-header">
+                    <span>Crop</span>
+                    <span>Market</span>
+                    <span>Price / Quintal</span>
+                    <span>Trend</span>
+                </div>
+
+                <div class="table-row">
+                    <span>🌾 Wheat</span>
+                    <span>Delhi</span>
+                    <strong>₹2,450</strong>
+                    <span class="up">↑ 4.2%</span>
+                </div>
+
+                <div class="table-row">
+                    <span>🌾 Rice</span>
+                    <span>Punjab</span>
+                    <strong>₹3,120</strong>
+                    <span class="up">↑ 2.8%</span>
+                </div>
+
+                <div class="table-row">
+                    <span>🌽 Maize</span>
+                    <span>Maharashtra</span>
+                    <strong>₹2,180</strong>
+                    <span class="down">↓ 1.4%</span>
+                </div>
+
+                <div class="table-row">
+                    <span>🥜 Groundnut</span>
+                    <span>Gujarat</span>
+                    <strong>₹5,240</strong>
+                    <span class="up">↑ 3.1%</span>
+                </div>
+
+            </div>
+
+
+            <div class="market-tip">
+
+                <span>💡</span>
+
+                <h3>Smart Selling</h3>
+
+                <p>
+                    Compare prices across nearby markets
+                    before deciding where to sell your produce.
+                </p>
+
+                <button>Check Markets →</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WEATHER -->
+
+    <section class="section" id="weather">
+
+        <div class="weather-header">
+
+            <div>
+                <span class="section-tag">FARM WEATHER</span>
+                <h2>Weather at a glance.</h2>
+            </div>
+
+            <div class="location">
+                📍 Maharashtra, India
+            </div>
+
+        </div>
+
+
+        <div class="weather-card">
+
+            <div class="today-weather">
+
+                <span class="sun">☀️</span>
+
+                <div>
+                    <small>TODAY</small>
+                    <h3>29°C</h3>
+                    <p>Mostly Sunny</p>
+                </div>
+
+            </div>
+
+
+            <div class="forecast">
+
+                <div>
+                    <span>MON</span>
+                    <b>☀️</b>
+                    <strong>30°</strong>
+                </div>
+
+                <div>
+                    <span>TUE</span>
+                    <b>⛅</b>
+                    <strong>28°</strong>
+                </div>
+
+                <div>
+                    <span>WED</span>
+                    <b>🌧️</b>
+                    <strong>26°</strong>
+                </div>
+
+                <div>
+                    <span>THU</span>
+                    <b>🌦️</b>
+                    <strong>27°</strong>
+                </div>
+
+                <div>
+                    <span>FRI</span>
+                    <b>☀️</b>
+                    <strong>30°</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FARMING TOOLS -->
+
+    <section class="section tools-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-tag">FARM TOOLS</span>
+                <h2>Everything you need.</h2>
+            </div>
+
+            <p>
+                Simple digital tools designed around
+                everyday farming decisions.
+            </p>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+            <div class="tool">
+                <span>🧪</span>
+                <h3>Soil Health</h3>
+                <p>
+                    Understand soil nutrients and
+                    improve crop productivity.
+                </p>
+                <a href="#">Explore →</a>
+            </div>
+
+            <div class="tool">
+                <span>💧</span>
+                <h3>Water Management</h3>
+                <p>
+                    Learn irrigation techniques and
+                    reduce unnecessary water usage.
+                </p>
+                <a href="#">Explore →</a>
+            </div>
+
+            <div class="tool">
+                <span>🐛</span>
+                <h3>Pest Detection</h3>
+                <p>
+                    Learn about common crop pests,
+                    symptoms and prevention.
+                </p>
+                <a href="#">Explore →</a>
+            </div>
+
+            <div class="tool">
+                <span>📊</span>
+                <h3>Farm Calculator</h3>
+                <p>
+                    Estimate costs, crop yield and
+                    potential farm returns.
+                </p>
+                <a href="#">Explore →</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCHEMES -->
+
+    <section class="schemes" id="schemes">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-tag">GOVERNMENT SUPPORT</span>
+
+                <h2>
+                    Don't miss support available to you.
+                </h2>
+            </div>
+
+            <p>
+                Discover agricultural schemes and
+                resources that may help your farm.
+            </p>
+
+        </div>
+
+
+        <div class="scheme-grid">
+
+            <div class="scheme-card">
+
+                <span>🇮🇳</span>
+
+                <h3>Farmer Support</h3>
+
+                <p>
+                    Explore information about government
+                    programs designed to support farmers.
+                </p>
+
+                <button>Learn More →</button>
+
+            </div>
+
+
+            <div class="scheme-card">
+
+                <span>💰</span>
+
+                <h3>Financial Assistance</h3>
+
+                <p>
+                    Understand available agricultural
+                    financial support and resources.
+                </p>
+
+                <button>Learn More →</button>
+
+            </div>
+
+
+            <div class="scheme-card">
+
+                <span>🌱</span>
+
+                <h3>Crop Insurance</h3>
+
+                <p>
+                    Learn about protecting your crops
+                    against unexpected losses.
+                </p>
+
+                <button>Learn More →</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <div>
+
+            <span>🌱 CROPLY</span>
+
             <h2>
-                Student. <span>Builder. Dreamer.</span>
+                Farming is changing.<br>
+                Let's grow with it.
             </h2>
 
             <p>
-                I like turning ideas into things people can
-                actually see, use and remember.
+                Better information can lead to better
+                decisions on every farm.
             </p>
 
-            <a href="#about" class="button">
-                ENTER MY WORLD →
-            </a>
-
         </div>
 
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section id="about">
-
-        <div class="label">
-            01 / ABOUT
-        </div>
-
-        <div class="about">
-
-            <h2>
-                NOT JUST
-                <br>
-                <span>A STUDENT.</span>
-            </h2>
-
-            <div class="about-text">
-
-                <p>
-                    Hey, I'm Atharv.
-                </p>
-
-                <p>
-                    I'm someone who enjoys technology,
-                    building websites, experimenting with
-                    ideas and learning things that initially
-                    seem difficult.
-                </p>
-
-                <p>
-                    My philosophy is simple:
-                    don't just learn something — build something
-                    with it.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="stats">
-
-            <div class="stat">
-                <strong>∞</strong>
-                <small>IDEAS</small>
-            </div>
-
-            <div class="stat">
-                <strong>24/7</strong>
-                <small>CURIOUS</small>
-            </div>
-
-            <div class="stat">
-                <strong>01</strong>
-                <small>MAIN CHARACTER</small>
-            </div>
-
-            <div class="stat">
-                <strong>100%</strong>
-                <small>LEARNING</small>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-
-    <section id="projects">
-
-        <div class="label">
-            02 / PROJECTS
-        </div>
-
-        <h2>
-            THINGS I'M
-            <br>
-            <span>BUILDING.</span>
-        </h2>
-
-
-        <div class="project">
-
-            <div class="project-number">
-                01
-            </div>
-
-            <div>
-                <h3>SIH PROJECT</h3>
-
-                <p>
-                    A real-world project created for
-                    Smart India Hackathon.
-                </p>
-            </div>
-
-            <div class="arrow">
-                ↗
-            </div>
-
-        </div>
-
-
-        <div class="project">
-
-            <div class="project-number">
-                02
-            </div>
-
-            <div>
-                <h3>WEB PROJECT</h3>
-
-                <p>
-                    An experimental website created
-                    to explore modern web development.
-                </p>
-            </div>
-
-            <div class="arrow">
-                ↗
-            </div>
-
-        </div>
-
-
-        <div class="project">
-
-            <div class="project-number">
-                03
-            </div>
-
-            <div>
-                <h3>THE NEXT BIG THING</h3>
-
-                <p>
-                    Currently classified. You'll have
-                    to come back later.
-                </p>
-            </div>
-
-            <div class="arrow">
-                ↗
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section id="contact" class="contact">
-
-        <div class="label">
-            03 / CONTACT
-        </div>
-
-        <h2>
-            LET'S BUILD
-            <br>
-            <span>SOMETHING COOL.</span>
-        </h2>
-
-        <p>
-            Got an idea? Let's make it real.
-        </p>
-
-        <a
-            href="mailto:your-email@example.com"
-            class="button"
-        >
-            SAY HELLO →
-        </a>
+        <button>
+            Start Exploring →
+        </button>
 
     </section>
 
@@ -584,17 +540,25 @@
 
     <footer>
 
-        <div>
-            ATHARV<span>.</span>
+        <div class="footer-logo">
+            🌱 Croply
         </div>
 
-        <div>
-            BUILT FROM SCRATCH
+        <p>
+            Smart farming information for India.
+        </p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#crops">Crops</a>
+            <a href="#market">Market</a>
+            <a href="#weather">Weather</a>
+            <a href="#schemes">Schemes</a>
         </div>
 
-        <div>
-            © 2026
-        </div>
+        <small>
+            © 2026 Croply. Built for Indian farmers.
+        </small>
 
     </footer>
 
