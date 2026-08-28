@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atharv</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>ATHARV</h1>
+        <p>Welcome to my world 🚀</p>
+        <button>Enter My Website</button>
+    </div>
+
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atharv — Beyond Ordinary</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Background */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: #6c35ff;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.15;
+            top: -200px;
+            right: -150px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: #00d9ff;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.08;
+            bottom: -100px;
+            left: -100px;
+            z-index: -1;
+        }
+
+        /* Navigation */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            background: rgba(5,5,5,0.55);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8c6cff;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 8%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .small {
+            color: #8c6cff;
+            letter-spacing: 5px;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: clamp(80px, 16vw, 200px);
+            line-height: 0.8;
+            letter-spacing: -10px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 span {
+            color: #8c6cff;
+        }
+
+        .hero h2 {
+            font-size: clamp(25px, 4vw, 50px);
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 span {
+            color: #777;
+        }
+
+        .hero p {
+            color: #888;
+            max-width: 500px;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 16px 25px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(140,108,255,0.3);
+        }
+
+        /* Sections */
+
+        section:not(.hero) {
+            padding: 130px 8%;
+            border-top: 1px solid #1b1b1b;
+        }
+
+        .label {
+            color: #666;
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            font-size: clamp(50px, 8vw, 110px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+            margin-bottom: 60px;
+        }
+
+        section h2 span {
+            color: #777;
+        }
+
+        /* About */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+        }
+
+        .about-text {
+            color: #888;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        /* Stats */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 80px;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .stat {
+            padding: 35px 20px;
+            border-right: 1px solid #222;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .stat small {
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+        /* Projects */
+
+        .project {
+            display: grid;
+            grid-template-columns: 100px 1fr 50px;
+            padding: 45px 0;
+            border-top: 1px solid #222;
+            transition: 0.4s;
+        }
+
+        .project:hover {
+            padding-left: 20px;
+            background: linear-gradient(90deg, #111, transparent);
+        }
+
+        .project-number {
+            color: #555;
+        }
+
+        .project h3 {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #666;
+            max-width: 600px;
+        }
+
+        .arrow {
+            font-size: 30px;
+            color: #777;
+        }
+
+        /* Contact */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 30px 8%;
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            font-size: 12px;
+            border-top: 1px solid #222;
+        }
+
+        /* Mobile */
+
+        @media(max-width: 700px) {
+
+            nav a {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 7%;
+            }
+
+            .hero h1 {
+                font-size: 80px;
+                letter-spacing: -5px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat {
+                border-bottom: 1px solid #222;
+            }
+
+            .project {
+                grid-template-columns: 50px 1fr 30px;
+            }
+
+            .project h3 {
+                font-size: 25px;
+            }
+
+            section:not(.hero) {
+                padding: 100px 7%;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">
+            ATHARV<span>.</span>
+        </div>
+
+        <div>
+            <a href="#about">ABOUT</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small">
+                WELCOME TO MY WORLD
+            </div>
+
+            <h1>
+                ATHARV<span>.</span>
+            </h1>
+
+            <h2>
+                Student. <span>Builder. Dreamer.</span>
+            </h2>
+
+            <p>
+                I like turning ideas into things people can
+                actually see, use and remember.
+            </p>
+
+            <a href="#about" class="button">
+                ENTER MY WORLD →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="label">
+            01 / ABOUT
+        </div>
+
+        <div class="about">
+
+            <h2>
+                NOT JUST
+                <br>
+                <span>A STUDENT.</span>
+            </h2>
+
+            <div class="about-text">
+
+                <p>
+                    Hey, I'm Atharv.
+                </p>
+
+                <p>
+                    I'm someone who enjoys technology,
+                    building websites, experimenting with
+                    ideas and learning things that initially
+                    seem difficult.
+                </p>
+
+                <p>
+                    My philosophy is simple:
+                    don't just learn something — build something
+                    with it.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>∞</strong>
+                <small>IDEAS</small>
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <small>CURIOUS</small>
+            </div>
+
+            <div class="stat">
+                <strong>01</strong>
+                <small>MAIN CHARACTER</small>
+            </div>
+
+            <div class="stat">
+                <strong>100%</strong>
+                <small>LEARNING</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="label">
+            02 / PROJECTS
+        </div>
+
+        <h2>
+            THINGS I'M
+            <br>
+            <span>BUILDING.</span>
+        </h2>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                01
+            </div>
+
+            <div>
+                <h3>SIH PROJECT</h3>
+
+                <p>
+                    A real-world project created for
+                    Smart India Hackathon.
+                </p>
+            </div>
+
+            <div class="arrow">
+                ↗
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                02
+            </div>
+
+            <div>
+                <h3>WEB PROJECT</h3>
+
+                <p>
+                    An experimental website created
+                    to explore modern web development.
+                </p>
+            </div>
+
+            <div class="arrow">
+                ↗
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                03
+            </div>
+
+            <div>
+                <h3>THE NEXT BIG THING</h3>
+
+                <p>
+                    Currently classified. You'll have
+                    to come back later.
+                </p>
+            </div>
+
+            <div class="arrow">
+                ↗
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+        <div class="label">
+            03 / CONTACT
+        </div>
+
+        <h2>
+            LET'S BUILD
+            <br>
+            <span>SOMETHING COOL.</span>
+        </h2>
+
+        <p>
+            Got an idea? Let's make it real.
+        </p>
+
+        <a
+            href="mailto:your-email@example.com"
+            class="button"
+        >
+            SAY HELLO →
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            ATHARV<span>.</span>
+        </div>
+
+        <div>
+            BUILT FROM SCRATCH
+        </div>
+
+        <div>
+            © 2026
+        </div>
+
+    </footer>
+
+</body>
+</html>
