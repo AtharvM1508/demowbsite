@@ -1725,3 +1725,160 @@ footer small {
     }
 
 }
+.back-home {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+
+    text-decoration: none;
+    color: #246b3d;
+    font-size: 16px;
+    font-weight: 600;
+
+    padding: 10px 16px;
+    border: 1px solid #d6e3d7;
+    border-radius: 8px;
+    background: white;
+
+    transition: all 0.2s ease;
+}
+
+.back-home:hover {
+    background: #246b3d;
+    color: white;
+}
+.crop-upload-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 70px 60px;
+
+    background: #eef6e9;
+    border-radius: 30px;
+}
+
+.crop-upload-content {
+    flex: 1;
+}
+
+.section-label {
+    color: #287a45;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.crop-upload-content h2 {
+    font-size: 55px;
+    margin: 18px 0;
+    color: #142018;
+}
+
+.crop-upload-content p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #607064;
+    max-width: 550px;
+}
+
+.upload-home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 16px 25px;
+
+    background: #287a45;
+    color: white;
+
+    text-decoration: none;
+    font-weight: 700;
+
+    border-radius: 10px;
+}
+
+.upload-home-btn:hover {
+    background: #1e6136;
+}
+
+.crop-upload-card {
+    width: 380px;
+    padding: 45px 35px;
+
+    background: white;
+    border: 1px solid #dce6dc;
+    border-radius: 22px;
+
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(30, 70, 40, 0.08);
+}
+
+.upload-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.crop-upload-card h3 {
+    font-size: 28px;
+    margin: 10px 0;
+    color: #142018;
+}
+
+.crop-upload-card p {
+    color: #68766c;
+    line-height: 1.6;
+}
+
+.upload-card-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 28px;
+
+    background: #287a45;
+    color: white;
+
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 9px;
+}
+
+.crop-upload-card small {
+    display: block;
+    margin-top: 18px;
+    color: #87928a;
+}
+.back-home {
+    color: #1f5f38;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.back-home:hover {
+    text-decoration: underline;
+}
+.home-btn {
+    position: absolute;
+    top: 22px;
+    right: 45px;
+
+    padding: 8px 18px;
+    border: 1px solid #287a45;
+    border-radius: 20px;
+
+    background: transparent;
+    color: #287a45;
+
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.home-btn:hover {
+    background: #287a45;
+    color: white;
+}
