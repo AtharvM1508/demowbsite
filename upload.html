@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Croply | Crop Detection</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="dashboard-nav">
+
+    <div class="logo">
+        🌱 Croply
+    </div>
+
+    <a href="dashboard.html">
+        ← Dashboard
+    </a>
+
+</header>
+
+
+<main class="upload-page">
+
+
+    <div class="upload-heading">
+
+        <span>
+            🌿 CROP HEALTH
+        </span>
+
+        <h1>
+            Check Your Crop
+        </h1>
+
+        <p>
+            Upload a clear photo of your crop leaf
+            to start a crop health analysis.
+        </p>
+
+    </div>
+
+
+    <div class="upload-card">
+
+
+        <div
+            class="upload-area"
+            id="uploadArea"
+        >
+
+            <div class="upload-icon">
+                📷
+            </div>
+
+            <h2>
+                Upload Crop Image
+            </h2>
+
+            <p>
+                Drag & drop your image here
+                or choose a file
+            </p>
+
+
+            <label class="choose-button">
+
+                Choose Image
+
+                <input
+                    type="file"
+                    id="cropImage"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                >
+
+            </label>
+
+
+            <small>
+                JPG, PNG or WEBP • Maximum 5MB
+            </small>
+
+        </div>
+
+
+        <div
+            id="previewContainer"
+            class="preview-container"
+        >
+
+            <img
+                id="preview"
+                alt="Crop preview"
+            >
+
+            <button
+                id="removeImage"
+                class="remove-button"
+            >
+                Remove Image
+            </button>
+
+        </div>
+
+
+        <button
+            id="uploadButton"
+            class="auth-button"
+        >
+            Upload Crop Image →
+        </button>
+
+
+        <p
+            id="uploadMessage"
+            class="message"
+        ></p>
+
+
+    </div>
+
+
+</main>
+
+
+<script>
+
+
+const imageInput =
+    document.getElementById(
+        "cropImage"
+    );
+
+
+const preview =
+    document.getElementById(
+        "preview"
+    );
+
+
+const previewContainer =
+    document.getElementById(
+        "previewContainer"
+    );
+
+
+const uploadButton =
+    document.getElementById(
+        "uploadButton"
+    );
+
+
+const message =
+    document.getElementById(
+        "uploadMessage"
+    );
+
+
+const removeButton =
+    document.getElementById(
+        "removeImage"
+    );
+
+
+// ======================================
+// IMAGE SELECTED
+// ======================================
+
+imageInput.addEventListener(
+    "change",
+    function () {
+
+        const file =
+            imageInput.files[0];
+
+
+        if (!file) {
+            return;
+        }
+
+
+        if (file.size > 5 * 1024 * 1024) {
+
+            message.textContent =
+                "❌ Image must be smaller than 5MB.";
+
+            message.className =
+                "message error";
+
+            imageInput.value = "";
+
+            return;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function (event) {
+
+                preview.src =
+                    event.target.result;
+
+                previewContainer.style.display =
+                    "block";
+
+            };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+// ======================================
+// REMOVE IMAGE
+// ======================================
+
+removeButton.addEventListener(
+    "click",
+    function () {
+
+        imageInput.value = "";
+
+        preview.src = "";
+
+        previewContainer.style.display =
+            "none";
+
+        message.textContent = "";
+
+    }
+);
+
+
+// ======================================
+// UPLOAD
+// ======================================
+
+uploadButton.addEventListener(
+    "click",
+    async function () {
+
+        const file =
+            imageInput.files[0];
+
+
+        if (!file) {
+
+            message.textContent =
+                "❌ Please choose an image first.";
+
+            message.className =
+                "message error";
+
+            return;
+
+        }
+
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "cropImage",
+            file
+        );
+
+
+        uploadButton.disabled = true;
+
+        uploadButton.textContent =
+            "Uploading...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "http://localhost:5000/api/upload",
+                    {
+
+                        method: "POST",
+
+                        body: formData
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (response.ok) {
+
+                message.textContent =
+                    "✅ Image uploaded successfully!";
+
+                message.className =
+                    "message success";
+
+
+                console.log(
+                    "Uploaded image:",
+                    result.image
+                );
+
+
+                uploadButton.textContent =
+                    "Image Uploaded ✓";
+
+            }
+
+            else {
+
+                message.textContent =
+                    "❌ " + result.message;
+
+                message.className =
+                    "message error";
+
+                uploadButton.disabled = false;
+
+                uploadButton.textContent =
+                    "Upload Crop Image →";
+
+            }
+
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            message.textContent =
+                "❌ Could not connect to server.";
+
+            message.className =
+                "message error";
+
+
+            uploadButton.disabled = false;
+
+            uploadButton.textContent =
+                "Upload Crop Image →";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

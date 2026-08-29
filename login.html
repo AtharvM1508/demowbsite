@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Croply | Farmer Login</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body class="auth-page">
+
+
+<div class="auth-container">
+
+
+    <div class="auth-brand">
+
+        🌱 Croply
+
+        <span>
+            Smart farming for India
+        </span>
+
+    </div>
+
+
+    <div class="auth-card">
+
+        <div class="auth-icon">
+            🌾
+        </div>
+
+
+        <h1>
+            Welcome Back
+        </h1>
+
+
+        <p class="auth-subtitle">
+            Login to your farmer dashboard
+        </p>
+
+
+        <form id="loginForm">
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="auth-button"
+            >
+                Login to Croply →
+            </button>
+
+
+        </form>
+
+
+        <p id="message"
+           class="message">
+        </p>
+
+
+        <div class="auth-footer">
+
+            New to Croply?
+
+            <a href="register.html">
+                Create Account
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+const form =
+    document.getElementById("loginForm");
+
+const message =
+    document.getElementById("message");
+
+
+form.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("email").value;
+
+        const password =
+            document.getElementById("password").value;
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "http://localhost:5000/api/auth/login",
+                    {
+
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                email,
+                                password
+
+                            })
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (response.ok) {
+
+                localStorage.setItem(
+                    "croplyToken",
+                    result.token
+                );
+
+
+                localStorage.setItem(
+                    "croplyFarmer",
+                    JSON.stringify(
+                        result.farmer
+                    )
+                );
+
+
+                message.textContent =
+                    "✅ Login successful!";
+
+                message.className =
+                    "message success";
+
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }, 700);
+
+            }
+
+            else {
+
+                message.textContent =
+                    "❌ " + result.message;
+
+                message.className =
+                    "message error";
+
+            }
+
+
+        }
+
+        catch (error) {
+
+            message.textContent =
+                "❌ Cannot connect to Croply server.";
+
+            message.className =
+                "message error";
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
